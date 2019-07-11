@@ -26,7 +26,6 @@ router.post('/:id/posts', validateUserId, validatePost, async (req, res) => {
     const post = await PostDb.insert({ text, user_id });
     res.status(201).json(post);
   } catch (error) {
-
     res.status(500).json({
       message: 'There was an error adding the post',
     });

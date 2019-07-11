@@ -5,7 +5,6 @@ const PostDb = require('./postDb');
 const router = express.Router();
 
 
-
 router.get('/', async (req, res) => {
   try {
     const posts = await PostDb.get(req.query);
@@ -34,8 +33,9 @@ router.get('/:id', validatePostId, async (req, res) => {
 });
 
 router.delete('/:id', validatePostId, async (req, res) => {
-  try { const { post: { id },
-    } = req;
+  try { const { 
+    post: { id },
+  } = req;
 
     const deletePost = await PostDb.remove(id);
     if (id > 0) {
